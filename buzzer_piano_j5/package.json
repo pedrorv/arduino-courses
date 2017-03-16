@@ -1,0 +1,11 @@
+{
+  "name": "buzzer_piano_j5",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.2",
+    "johnny-five": "^0.10.6",
+    "socket.io": "^1.7.3"
+  }
+}
