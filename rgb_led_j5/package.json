@@ -1,0 +1,12 @@
+{
+  "name": "rgb_led_j5",
+  "version": "1.0.0",
+  "description": "http://blog.ricardofilipe.com/post/getting-started-arduino-johhny-five",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.2",
+    "johnny-five": "^0.10.6",
+    "socket.io": "^1.7.3"
+  }
+}
