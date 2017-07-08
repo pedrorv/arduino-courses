@@ -2,18 +2,23 @@
 
 Servo motorX;
 Servo motorY;
-const int X = 10;
-const int Y = 9;
-const int servoDelay = 15;
-int direction;
-int xAngle = 93;
-int yAngle = 75;
-int xSpeed = 1;
-int ySpeed = 1;
+const int X = 10
+        , Y = 9
+        , servoDelay = 15
+        , xBaseAngle = 93
+        , yBaseAngle = 75
+        , xLimit = 23
+        , yLimit = 17;
+
+int direction
+  , xAngle = xBaseAngle
+  , yAngle = yBaseAngle
+  , xSpeed = 1
+  , ySpeed = 1;
 
 void setup() {
-  motorX.write(93);
-  motorY.write(75);
+  motorX.write(xBaseAngle);
+  motorY.write(yBaseAngle);
   motorX.attach(X);
   motorY.attach(Y);
   delay(2000);
@@ -26,22 +31,17 @@ void loop() {
     xAngle += xSpeed;
     motorX.write(xAngle);
 
-    if (xAngle > (93 + 22)) {
+    if (xAngle > (xBaseAngle + xLimit) || xAngle < (xBaseAngle - xLimit)) {
       xSpeed = -xSpeed;
     }
-    if (xAngle < (93 - 22)) {
-      xSpeed = -xSpeed; 
-    }
   }
-  else if (direction == 1) {
+  
+  if (direction == 1) {
     yAngle += ySpeed;
     motorY.write(yAngle);
 
-    if (yAngle > (75 + 17)) {
+    if (yAngle > (yBaseAngle + yLimit) || yAngle < (yBaseAngle - yLimit)) {
       ySpeed = -ySpeed;
-    }
-    if (yAngle < (75 - 17)) {
-      ySpeed = -ySpeed; 
     }
   }
 
