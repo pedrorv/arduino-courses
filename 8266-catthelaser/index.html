@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Cat the Laser</title>
+</head>
+<body>
+    <button class='mode' id='random'>Random Mode</button>
+    <button class='mode' id='control'>Control Mode</button>
+    <button class='mode' id='pause'>Pause Mode</button>
+
+    <h1>The game is currently on <span class='mode'>pause</span> mode.</h1>
+
+    <script>
+        var modes = document.querySelectorAll('.mode');
+        var currentMode = 'pause';
+
+        modes.forEach(function(mode) {
+            mode.addEventListener('click', function() {
+                fetch(location.href + 'change?mode=' + mode.id);
+                currentMode = mode.id;
+                document.querySelector('span.mode').innerHTML = mode.id;
+            });
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (currentMode === 'control') {
+                fetch(location.href + 'control?move=' + event.key);
+            }
+        });
+    </script>
+</body>
+</html>
